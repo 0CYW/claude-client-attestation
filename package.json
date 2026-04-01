@@ -1,0 +1,7 @@
+{
+  "name": "claude-attestation",
+  "main": "index.ts",
+  "devDependencies": {
+    "@types/bun": "latest"
+  }
+}

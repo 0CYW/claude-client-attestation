@@ -13,10 +13,10 @@ function rotl64(x: bigint, r: bigint): bigint {
 
 function readU32LE(buf: Buffer, offset: number): bigint {
   return BigInt(
-    (buf[offset] |
-      (buf[offset + 1] << 8) |
-      (buf[offset + 2] << 16) |
-      (buf[offset + 3] << 24)) >>>
+    (buf[offset]! |
+      (buf[offset + 1]! << 8) |
+      (buf[offset + 2]! << 16) |
+      (buf[offset + 3]! << 24)) >>>
       0,
   );
 }
@@ -98,7 +98,7 @@ function xxh64(input: Buffer, seed: bigint = 0n): bigint {
   }
 
   while (p < len) {
-    h64 ^= (BigInt(input[p]) * PRIME64_5) & MASK64;
+    h64 ^= (BigInt(input[p]!) * PRIME64_5) & MASK64;
     p += 1;
     h64 = (rotl64(h64, 11n) * PRIME64_1) & MASK64;
   }
